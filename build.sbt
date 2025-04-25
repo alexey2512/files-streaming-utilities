@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "2.13.16"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "FileStreamingUtilities",
+    name := "FilesStreamingUtilities",
     version := "1.0.0"
   )
 

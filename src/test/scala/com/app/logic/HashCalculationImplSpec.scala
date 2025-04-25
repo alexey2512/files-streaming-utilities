@@ -1,17 +1,14 @@
 package com.app.logic
 
 import cats.effect.IO
+import cats.effect.testing.scalatest.AsyncIOSpec
 import fs2.io.file._
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers
-import cats.effect.testing.scalatest.AsyncIOSpec
 
 import java.nio.charset._
 
-class HashCalculationImplSpec
-    extends AsyncFlatSpec
-    with Matchers
-    with AsyncIOSpec {
+class HashCalculationImplSpec extends AsyncFlatSpec with Matchers with AsyncIOSpec {
 
   val hc: HashCalculation[IO] = HashCalculationImpl[IO]
 
@@ -36,10 +33,13 @@ class HashCalculationImplSpec
     s"on ${test.filename}" should "calculate hash correctly" in {
       val digester: Digester = new Digester(test.algorithm)
       digester.createContent(test.filename, test.content, test.encoding)
-      val fileHash: String = hc.calculateHash(
-        Files[IO].readAll(Path(test.filename)),
-        test.algorithm
-      ).unsafeRunSync().getOrElse("")
+      val fileHash: String = hc
+        .calculateHash(
+          Files[IO].readAll(Path(test.filename)),
+          test.algorithm
+        )
+        .unsafeRunSync()
+        .getOrElse("")
       val digesterHash: String = digester.getHash(test.filename)
       fileHash shouldEqual digesterHash
       digester.deleteContent(test.filename)

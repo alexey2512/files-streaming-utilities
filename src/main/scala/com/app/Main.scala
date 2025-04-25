@@ -4,11 +4,11 @@ import cats.effect._
 import com.app.api._
 import com.app.config._
 import com.app.logic._
+import org.http4s.blaze.server.BlazeServerBuilder
 import pureconfig.ConfigSource
 import pureconfig.module.catseffect.syntax._
-import tofu.syntax.logging._
 import tofu.logging.Logging
-import org.http4s.blaze.server.BlazeServerBuilder
+import tofu.syntax.logging._
 
 object Main extends IOApp {
 

@@ -1,13 +1,13 @@
 package com.app.error
 
-import sttp.tapir.EndpointOutput.{OneOf, OneOfVariant}
-import sttp.tapir.json.tethysjson.jsonBody
+import derevo.derive
 import sttp.model.StatusCode
 import sttp.tapir.{Schema, oneOf, oneOfVariant}
-import derevo.derive
-import tofu.logging.derivation.loggable
-import tethys._
+import sttp.tapir.EndpointOutput.{OneOf, OneOfVariant}
+import sttp.tapir.json.tethysjson.jsonBody
+import tethys.{JsonObjectWriter, JsonReader}
 import tethys.derivation.semiauto._
+import tofu.logging.derivation.loggable
 
 @derive(loggable)
 sealed trait ApiError {

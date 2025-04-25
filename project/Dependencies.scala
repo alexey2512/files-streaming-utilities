@@ -2,10 +2,9 @@ import sbt.*
 
 object Dependencies {
 
-  val logback = "ch.qos.logback" %  "logback-classic"     % "1.5.18"
-  val blaze   = "org.http4s"     %% "http4s-blaze-server" % "0.23.17"
-
-  val singles: Seq[ModuleID] = Seq(logback, blaze)
+  val logback        = "ch.qos.logback" %  "logback-classic"     % "1.5.18"
+  val blaze_server   = "org.http4s"     %% "http4s-blaze-server" % "0.23.17"
+  val singles: Seq[ModuleID] = Seq(logback, blaze_server)
 
   trait ModuleBatch {
     val modules: Seq[ModuleID]
@@ -19,7 +18,7 @@ object Dependencies {
   }
 
   object Tapir extends ModuleBatch {
-    val version: String = "1.11.24"
+    val version: String = "1.11.25"
     val modules: Seq[ModuleID] = Seq(
       "com.softwaremill.sttp.tapir" %% "tapir-core"              % version,
       "com.softwaremill.sttp.tapir" %% "tapir-http4s-server"     % version,
@@ -38,7 +37,7 @@ object Dependencies {
   }
 
   object Pureconfig extends ModuleBatch {
-    val version: String = "0.17.8"
+    val version: String = "0.17.9"
     val modules: Seq[ModuleID] = Seq(
       "com.github.pureconfig" %% "pureconfig"             % version,
       "com.github.pureconfig" %% "pureconfig-core"        % version,
@@ -61,9 +60,7 @@ object Dependencies {
     val version: String = "0.11.6"
     val modules: Seq[ModuleID] = Seq(
       "org.manatki" %% "derevo-core"       % version,
-      "org.manatki" %% "derevo-cats"       % version,
       "org.manatki" %% "derevo-pureconfig" % version,
-      "org.manatki" %% "derevo-tethys"     % version
     )
   }
 

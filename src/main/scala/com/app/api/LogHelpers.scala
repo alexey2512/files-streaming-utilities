@@ -1,7 +1,7 @@
 package com.app.api
 
-import cats.syntax.all._
 import cats.Monad
+import cats.syntax.all._
 import tofu.logging._
 
 class LogHelpers[F[_]: Logging: Monad] {

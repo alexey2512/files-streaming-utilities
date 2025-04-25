@@ -1,9 +1,9 @@
 package com.app.api
 
-import com.app.config.AppConfig
-import com.app.logic.{HashCalculation, Transforming}
 import cats.effect.Async
 import cats.syntax.functor._
+import com.app.config.AppConfig
+import com.app.logic.{HashCalculation, Transforming}
 import org.http4s.HttpRoutes
 import pureconfig._
 import pureconfig.module.catseffect.syntax._

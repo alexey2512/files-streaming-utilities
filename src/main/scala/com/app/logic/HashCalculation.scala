@@ -1,7 +1,7 @@
 package com.app.logic
 
-import fs2.Stream
 import com.app.error.ApiError
+import fs2.Stream
 
 trait HashCalculation[F[_]] {
 
